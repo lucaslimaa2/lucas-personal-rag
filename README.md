@@ -13,9 +13,6 @@ This is project #1 of Lucas's AI portfolio, intended both as a learning exercise
 - **UI:** Streamlit
 - **Deploy:** Railway
 
-## Status
-
-Phase 0 — initial scaffolding. See `LEARNINGS.md` for the architecture and what each phase teaches.
 
 ## Quick start (once keys are in place)
 
