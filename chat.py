@@ -75,12 +75,21 @@ def answer(
     messages = history + [{"role": "user", "content": user_msg_text}]
 
     # 4. Call Claude
+    # The system prompt never changes between requests, so we mark it for
+    # Anthropic's prompt caching: subsequent calls within ~5 minutes pay
+    # 10% of the normal input cost on those tokens.
     client = Anthropic()
     resp = client.messages.create(
         model=CHAT_MODEL,
         max_tokens=MAX_TOKENS,
         temperature=TEMPERATURE,
-        system=SYSTEM_PROMPT,
+        system=[
+            {
+                "type": "text",
+                "text": SYSTEM_PROMPT,
+                "cache_control": {"type": "ephemeral"},
+            }
+        ],
         messages=messages,
     )
     assistant_text = resp.content[0].text.strip() if resp.content else ""
