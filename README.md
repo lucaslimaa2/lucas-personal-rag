@@ -133,14 +133,6 @@ A few non-obvious choices a reader might want context on.
 
 **Two-repo architecture.** This RAG project is its own deployable unit on `chat.lucaslima.xyz`. The personal portfolio at `lucaslima.xyz` links to it via a card on the AI portfolio page. Each repo can be shared with recruiters independently. No monorepo, no submodules.
 
-## Roadmap
-
-- [ ] More per-protocol case studies (Wormhole, Monad, Ripple, Pyth)
-- [ ] Eval test set with representative Q&As, measure retrieval quality systematically
-- [ ] Streaming responses (token-by-token UX)
-- [ ] Hybrid search for exact-term queries (years, names, IDs)
-- [ ] Cohere reranker if corpus grows past ~100 chunks
-
 ## License
 
 This repository's code is MIT-licensed. The content (resume, case studies) is reserved.
