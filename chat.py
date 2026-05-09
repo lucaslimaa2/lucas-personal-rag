@@ -53,7 +53,7 @@ def answer(
     question: str,
     history: list[dict[str, Any]] | None = None,
     k: int = DEFAULT_K,
-    namespace: str = "dev",
+    namespace: str | None = None,
 ) -> tuple[str, list[dict[str, Any]], list[RetrievalResult]]:
     """Generate a grounded answer.
 
@@ -61,9 +61,13 @@ def answer(
       (assistant_text, updated_history, retrieved_results)
 
     `updated_history` contains the bare question + assistant answer for this
-    turn — pass it back next turn for multi-turn continuity.
+    turn. Pass it back next turn for multi-turn continuity.
+
+    namespace: if None, reads PINECONE_NAMESPACE from env (default "prod").
     """
     history = list(history or [])
+    if namespace is None:
+        namespace = os.environ.get("PINECONE_NAMESPACE", "prod")
 
     # 1. Retrieve fresh context for this question
     results = retrieve(question, k=k, namespace=namespace)

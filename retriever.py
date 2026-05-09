@@ -48,7 +48,7 @@ def embed_query(question: str) -> list[float]:
 def retrieve(
     question: str,
     k: int = DEFAULT_K,
-    namespace: str = "dev",
+    namespace: str | None = None,
     filter: dict[str, Any] | None = None,
 ) -> list[RetrievalResult]:
     """Return the top-K chunks most relevant to a question, ordered by score (high first).
@@ -56,7 +56,8 @@ def retrieve(
     Args:
       question:  the user's question (a string).
       k:         how many chunks to return.
-      namespace: Pinecone namespace to search ("dev" / "prod").
+      namespace: Pinecone namespace to search. If None, reads PINECONE_NAMESPACE
+                 from env (default: "prod" — the safer default for deployed code).
       filter:    optional Pinecone metadata filter, e.g. {"doc_type": {"$eq": "Resume"}}.
 
     Returns:
@@ -64,6 +65,8 @@ def retrieve(
     """
     if not question.strip():
         return []
+    if namespace is None:
+        namespace = os.environ.get("PINECONE_NAMESPACE", "prod")
 
     pc = Pinecone(api_key=os.environ["PINECONE_API_KEY"])
     index = pc.Index(os.environ["PINECONE_INDEX_NAME"])
