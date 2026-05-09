@@ -11,4 +11,5 @@ dependencies = [
     "pinecone>=9.0.0",
     "python-dotenv>=1.2.2",
     "streamlit>=1.57.0",
+    "tiktoken>=0.12.0",
 ]
