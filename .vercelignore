@@ -1,0 +1,25 @@
+# Files Vercel should NOT include in the function bundle.
+# Local-dev-only configs that confuse Vercel's Python builder if included.
+
+# uv local-dev manifest — Vercel uses requirements.txt instead
+pyproject.toml
+uv.lock
+.python-version
+
+# Local virtual env
+.venv
+
+# Project-context / private notes (already gitignored, defense in depth)
+CLAUDE.md
+LEARNINGS.md
+
+# Local indexing pipeline — not needed at runtime (chatbot only retrieves, doesn't index)
+chunker.py
+indexer.py
+loaders/
+scripts/
+
+# Python caches / build artifacts
+__pycache__/
+*.pyc
+.cache/

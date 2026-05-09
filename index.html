@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat with Lucas's resume + VEGA's work</title>
+  <meta name="description" content="A RAG chatbot trained on Lucas Lima's resume, VEGA case studies, and Coca-Cola HR analytics work. Ask anything about his career." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="https://lucaslima.xyz" class="back-link" aria-label="Back to lucaslima.xyz">
+        ← lucaslima.xyz
+      </a>
+      <h1 class="app-title">Chat with Lucas's resume + VEGA's work</h1>
+      <p class="app-subtitle">
+        Ask about his experience at VEGA, Coca-Cola, FTX, languages, education, or anything else.
+      </p>
+    </div>
+  </header>
+
+  <main class="chat" id="chat" aria-live="polite">
+    <div class="messages" id="messages">
+      <div class="msg msg-assistant">
+        <div class="msg-bubble">
+          Hi — I'm a chatbot grounded in Lucas Lima's resume and VEGA case studies. Ask me anything
+          about his career, projects, or skills.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <form class="composer" id="composer" autocomplete="off">
+    <div class="composer-inner">
+      <textarea
+        id="input"
+        class="composer-input"
+        rows="1"
+        placeholder="Ask a question..."
+        aria-label="Your question"
+        required
+      ></textarea>
+      <button type="submit" id="send" class="composer-send" aria-label="Send">
+        Send
+      </button>
+    </div>
+    <p class="composer-hint">Press Enter to send · Shift + Enter for new line</p>
+  </form>
+
+  <script src="/chat.js" defer></script>
+</body>
+</html>

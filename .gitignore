@@ -30,3 +30,5 @@ Thumbs.db
 # Claude Code project context — local-only, not for the public repo
 CLAUDE.md
 LEARNINGS.md
+
+.vercel
