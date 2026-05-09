@@ -60,12 +60,19 @@ a {
   margin: 0 auto;
 }
 
+.back-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
 .back-link {
   display: inline-block;
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 16px;
   transition: color 0.2s;
+  width: fit-content;
 }
 
 .back-link:hover {
