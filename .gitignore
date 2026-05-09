@@ -26,3 +26,7 @@ Thumbs.db
 # Project artifacts
 *.log
 .cache/
+
+# Claude Code project context — local-only, not for the public repo
+CLAUDE.md
+LEARNINGS.md
